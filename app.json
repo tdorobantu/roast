@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "roast",
+    "slug": "roast",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
