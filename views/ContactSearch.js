@@ -6,15 +6,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useAppContext, useAppUpdateContext } from "../AppContext";
+import { useAppUpdateContext } from "../AppContext";
 import * as Contacts from "expo-contacts";
 import { SearchBar } from "@rneui/base";
 
-const ContactSearch = () => {
+const ContactSearch = ({navigation}) => {
   const [contacts, setContacts] = useState([]);
   const [search, setSearch] = useState("");
   const updateContext = useAppUpdateContext();
-  const appContext = useAppContext();
+
 
   const updateSearch = (search) => {
     console.log(search);
@@ -73,12 +73,12 @@ const ContactSearch = () => {
   }, []);
 
   const handlePress = (contact) => {
-    console.log(contact)
     updateContext({
       key: contact.key,
       name: contact.name,
       phoneNumber: contact.phoneNumber,
     });
+    navigation.navigate('SendGift')
   };
 
   const renderContact = (contact) => {
