@@ -1,13 +1,26 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import SendCoupon from "./views/SendCoupon";
+import { StyleSheet } from "react-native";
+import ContactSearch from "./views/ContactSearch";
+import SendGift from "./views/SendGift";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AppProvider } from "./AppContext";
 
 const App = () => {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <SafeAreaView style={styles.container}>
-      <SendCoupon />
-    </SafeAreaView>
+    <AppProvider>
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <Stack.Navigator>
+            <Stack.Screen name="ContactSearch" component={ContactSearch} />
+            <Stack.Screen name="SendGift" component={SendGift} />
+          </Stack.Navigator>
+        </SafeAreaProvider>
+      </NavigationContainer>
+    </AppProvider>
   );
 };
 
