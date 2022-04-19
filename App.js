@@ -6,7 +6,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AppProvider } from "./AppContext";
-
+// n
 const App = () => {
   const Stack = createNativeStackNavigator();
 
